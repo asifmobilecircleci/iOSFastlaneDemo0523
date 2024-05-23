@@ -5,7 +5,7 @@ storage_mode("git")
 app_identifier("test.com.firstproject.DemoAsifFastlane")
 username("asifbillionbus786@gmail.com")
 ENV["MATCH_PASSWORD"] = "globo786ka"
-ENV["FASTLANE_PASSWORD"] = "khpt-njvu-evhz-dgam"
+ENV["FASTLANE_PASSWORD"] = "Billions786ka#"
 
 
 type("development") # The default type, can be: appstore, adhoc, enterprise or development
