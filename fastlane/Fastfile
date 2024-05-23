@@ -2,7 +2,7 @@ platform :ios do
   desc "Update provisioning profiles"
   lane :update_provisioning_profiles do
     match(
-      readonly: true
+      readonly: false
     )
   end
 
