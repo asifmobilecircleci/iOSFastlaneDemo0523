@@ -1,0 +1,43 @@
+platform :ios do
+  desc "Update provisioning profiles"
+  lane :update_provisioning_profiles do
+    match(type: "appstore")
+    match(type: "development")
+  end
+
+  desc "Build the app and test IPA, then upload to Sauce Labs"
+  lane :build_and_upload do
+    update_provisioning_profiles
+
+    # Build the app IPA
+    build_app(
+      scheme: "SampleApp",
+      export_method: "app-store",
+      output_directory: "./output",
+      output_name: "DemoApp.ipa"
+    )
+
+    # Build the test IPA for UI testing
+    build_app(
+      scheme: "SampleApp",
+      configuration: "Debug",
+      export_method: "development",
+      output_directory: "./output",
+      output_name: "DemoAppTest.ipa"
+    )
+
+    # Upload to Sauce Labs
+    sh "curl -u $SAUCE_USERNAME:$SAUCE_ACCESS_KEY -X POST -H 'Content-Type: application/octet-stream' https://api.us-west-1.saucelabs.com/v1/storage/upload --data-binary @./output/DemoAppTest.ipa?overwrite=true"
+  end
+
+  desc "Run XCUI tests on Sauce Labs"
+  lane :run_xcui_tests_on_sauce_lab do
+    scan(
+      scheme: "SampleAppUITests",
+      devices: ["iPhone 12"],
+      derived_data_path: "./output/derived_data",
+      output_directory: "./output/test_output",
+      result_bundle: true
+    )
+  end
+end

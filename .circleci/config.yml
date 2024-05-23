@@ -1,0 +1,37 @@
+version: 2.1
+
+jobs:
+  build:
+    macos:
+      xcode: "15.0"
+    environment:
+      SAUCE_USERNAME: ENV["SAUCE_USERNAME"],
+      SAUCE_ACCESS_KEY: ENV["SAUCE_ACCESS_KEY"]
+      
+    steps:
+      - checkout
+      - run:
+          name: Install Fastlane and Bundler
+          command: |
+            gem install bundler
+            bundle install
+      - run:
+          name: Update provisioning profiles
+          command: bundle exec fastlane update_provisioning_profiles
+      - run:
+          name: Build and upload test IPA to Sauce Labs
+          command: bundle exec fastlane build_and_upload
+      - run:
+          name: Run XCUI tests on Sauce Labs
+          command: bundle exec fastlane run_xcui_tests_on_sauce_lab
+      - store_test_results:
+          path: ./output/test_output
+      - store_artifacts:
+          path: ./output
+          destination: output
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
