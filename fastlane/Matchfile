@@ -4,6 +4,7 @@ storage_mode("git")
 
 app_identifier("test.com.firstproject.DemoAsifFastlane")
 username("asifbillionbus786@gmail.com")
+ENV["MATCH_PASSWORD"] = "globo786"
 
 
 type("development") # The default type, can be: appstore, adhoc, enterprise or development
