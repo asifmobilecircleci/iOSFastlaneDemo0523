@@ -1,25 +1,15 @@
 platform :ios do
   desc "Update provisioning profiles"
   lane :update_provisioning_profiles do
-    match(type: "appstore", password: ENV["MATCH_PASSWORD"])
-    match(type: "development", password: ENV["MATCH_PASSWORD"])
+    match(type: "appstore",)
+    match(type: "development",)
   end
 
   desc "Build the app and test IPA, then upload to Sauce Labs"
   lane :build_and_upload do
     setup_ci
 
-    sync_code_signing(
-      type: "development",
-      app_identifier: 'test.com.firstproject.DemoAsifFastlane',
-      readonly: true
-    )
-
-    sync_code_signing(
-      type: "appstore",
-      app_identifier: 'test.com.firstproject.DemoAsifFastlane',
-      readonly: true
-    )
+    update_provisioning_profiles 
 
     # Build the app IPA
     build_app(
