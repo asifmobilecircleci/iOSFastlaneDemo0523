@@ -16,6 +16,7 @@ jobs:
           command: |
             gem install bundler
             bundle install
+            bundle update fastlane
       - run:
           name: Build and upload test IPA to Sauce Labs
           command: bundle exec fastlane ios build_and_upload
