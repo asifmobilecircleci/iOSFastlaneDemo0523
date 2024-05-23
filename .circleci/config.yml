@@ -6,7 +6,8 @@ jobs:
       xcode: "15.0"
     environment:
       SAUCE_USERNAME: ENV["SAUCE_USERNAME"],
-      SAUCE_ACCESS_KEY: ENV["SAUCE_ACCESS_KEY"]
+      SAUCE_ACCESS_KEY: ENV["SAUCE_ACCESS_KEY"],
+      MATCH_PASSWORD: ENV["MATCH_PASSWORD"],
       
     steps:
       - checkout
