@@ -7,7 +7,7 @@ platform :ios do
       app_store_connect_api_key(
         key_id: "977Q72TV9V",
         issuer_id: "8f479d91-71d3-45b4-af9a-c075f1b748f0",
-        key_filepath: "./AuthKey_977Q72TV9V.p8"
+        key_content: "LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JR1RBZ0VBTUJNR0J5cUdTTTQ5QWdFR0NDcUdTTTQ5QXdFSEJIa3dkd0lCQVFRZ20rcFJJM2NtUUdZVEVQNEEKWXk5ZlA1b0wxbDJndUxWK3p2VkxkbGRGYUlHZ0NnWUlLb1pJemowREFRZWhSQU5DQUFSNDJzRldWZFAvc3RULwpaNWkrenlMeWhZUEdhYlBKTTdPSnoveHZuZy9iZ2l0UmwyN1dsMGNHZWVlSzkwbitTVnpiemE0QzJKTXBJWnM1CngvOUdSUFNOCi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0="
       )
 
       match(readonly: false)
