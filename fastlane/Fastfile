@@ -1,6 +1,10 @@
 platform :ios do
   desc "Update provisioning profiles"
+
   lane :update_provisioning_profiles do
+
+      ENV['FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD']= 'khpt-njvu-evhz-dgam'
+
     match(
       readonly: false
     )
