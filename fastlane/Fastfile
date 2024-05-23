@@ -11,7 +11,7 @@ platform :ios do
 
     # Build the app IPA
     build_app(
-      scheme: "SampleApp",
+      scheme: "DemoApp",
       export_method: "app-store",
       output_directory: "./output",
       output_name: "DemoApp.ipa"
@@ -19,7 +19,7 @@ platform :ios do
 
     # Build the test IPA for UI testing
     build_app(
-      scheme: "SampleApp",
+      scheme: "DemoApp",
       configuration: "Debug",
       export_method: "development",
       output_directory: "./output",
@@ -33,7 +33,7 @@ platform :ios do
   desc "Run XCUI tests on Sauce Labs"
   lane :run_xcui_tests_on_sauce_lab do
     scan(
-      scheme: "SampleAppUITests",
+      scheme: "DemoAppUITests",
       devices: ["iPhone 12"],
       derived_data_path: "./output/derived_data",
       output_directory: "./output/test_output",
