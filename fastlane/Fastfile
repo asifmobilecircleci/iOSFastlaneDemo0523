@@ -4,7 +4,20 @@ platform :ios do
   lane :update_provisioning_profiles do
 
 
-      match(readonly: false)
+       match(
+      type: "adhoc",
+      readonly: true,
+      app_identifier: "test.com.firstproject.DemoAsifFastlane",
+      username: "asifbillionbus786@gmail.com",
+      password: ENV["MATCH_PASSWORD"]
+    )
+    match(
+      type: "adhoc",
+      readonly: true,
+      app_identifier: "test.com.firstproject.DemoAsifFastlane",
+      username: "asifbillionbus786@gmail.com",
+      password: ENV["MATCH_PASSWORD"]
+    )
    
   end
 
@@ -17,7 +30,7 @@ platform :ios do
     # Build the app IPA
     build_app(
       scheme: "DemoApp",
-      export_method: "app-store",
+      export_method: "adhoc",
       output_directory: "./output",
       output_name: "DemoApp.ipa"
     )
@@ -26,7 +39,7 @@ platform :ios do
     build_app(
       scheme: "DemoApp",
       configuration: "Debug",
-      export_method: "development",
+      export_method: "adhoc",
       output_directory: "./output",
       output_name: "DemoAppTest.ipa"
     )
