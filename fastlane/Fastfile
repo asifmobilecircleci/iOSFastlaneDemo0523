@@ -9,14 +9,12 @@ platform :ios do
       readonly: true,
       app_identifier: "test.com.firstproject.DemoAsifFastlane",
       username: "asifbillionbus786@gmail.com",
-      password: ENV["MATCH_PASSWORD"]
     )
     match(
       type: "adhoc",
       readonly: true,
       app_identifier: "test.com.firstproject.DemoAsifFastlane",
       username: "asifbillionbus786@gmail.com",
-      password: ENV["MATCH_PASSWORD"]
     )
    
   end
@@ -30,7 +28,7 @@ platform :ios do
     # Build the app IPA
     build_app(
       scheme: "DemoApp",
-      export_method: "adhoc",
+      export_method: "ad-hoc",
       output_directory: "./output",
       output_name: "DemoApp.ipa"
     )
@@ -39,7 +37,7 @@ platform :ios do
     build_app(
       scheme: "DemoApp",
       configuration: "Debug",
-      export_method: "adhoc",
+      export_method: "ad-hoc",
       output_directory: "./output",
       output_name: "DemoAppTest.ipa"
     )
